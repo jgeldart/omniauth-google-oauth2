@@ -106,6 +106,13 @@ describe OmniAuth::Strategies::GoogleOauth2 do
       end
     end
 
+    describe 'request_visible_actions' do
+      it 'should set the request_visible_actions parameter' do
+        @options = {:request_visible_actions => 'http://schemas.google.com/AddActivity'}
+        subject.authorize_params['request_visible_actions'].should eq('http://schemas.google.com/AddActivity')
+      end
+    end
+
     describe 'state' do
       it 'should set the state parameter' do
         @options = {:state => 'some_state'}
